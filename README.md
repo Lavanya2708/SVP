@@ -1,32 +1,26 @@
-Social Media Engagement Enhancer
+# Social Media Content Recommendation System
 
-Overview
+## Overview
 
-This project aims to enhance user engagement on a leading social media platform by developing and refining the content recommendation algorithm. The focus areas include user behavior analysis, algorithm performance improvement, and promoting content diversity.
+This project aims to develop a content recommendation system for a leading social media platform. The primary goal is to enhance user engagement by delivering personalized, relevant, and diverse content to users based on their behavior and preferences.
 
-Features
-User Behavior Analysis: Understanding user behavior and preferences to predict and recommend engaging content.
+## Algorithms Used
 
-Algorithm Performance: Enhancing the recommendation algorithm's performance to deliver real-time, personalized content.
+1. **Multi-Armed Bandit (MAB):** Used for balancing exploration and exploitation in content recommendations.
+2. **Fairness Constrained Q-learning:** Ensures fairness and diversity in content recommendations.
+3. **Deep Q-learning:** Handles complex recommendation environments using neural networks.
+4. **Graph Convolutional Networks (GCN):** Captures structural information from user-item interactions in social networks.
 
-Content Diversity: Ensuring a diverse range of content is recommended to prevent echo chambers.
+## Installation
 
-Algorithms Used:
+To run this project, we need Python and the following libraries:
 
-Q-learning with Fairness Constraints: An off-policy reinforcement learning algorithm that uses a Q-table to store and update Q-values for state-action pairs, with added fairness constraints to ensure diverse and unbiased recommendations.
+- numpy
+- torch
+- torch_geometric
+  
 
-Graph Convolutional Networks (GCN): Used for analyzing user interactions on social networks and learning user embeddings.
+we can install the required packages using pip:
 
-Collaborative Filtering: A traditional recommendation technique that leverages user-item interactions to predict user preferences.
-
-Project Structure
-
-DNQ: Implementation of the Q-learning algorithm with fairness constraints.
-
-GCN: Implementation of the Graph Convolutional Networks for recommendation.
-
-FAIRQ: Implementation of the fairness Q algorithm.
-
-MAB:implementation of the multi armed bandit.
-
-README.md: Documentation and instructions.
+```bash
+pip install numpy torch torch_geometric 
