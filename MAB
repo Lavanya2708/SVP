@@ -1,0 +1,30 @@
+import numpy as np
+
+class MultiArmedBandit:
+    def __init__(self, n_arms, epsilon=0.1):
+        self.n_arms = n_arms
+        self.epsilon = epsilon
+        self.arm_rewards = np.zeros(n_arms)
+        self.arm_counts = np.zeros(n_arms)
+    
+    def select_arm(self):
+        if np.random.rand() < self.epsilon:
+            return np.random.randint(self.n_arms)
+        else:
+            return np.argmax(self.arm_rewards / (self.arm_counts + 1))
+    
+    def update(self, chosen_arm, reward):
+        self.arm_counts[chosen_arm] += 1
+        n = self.arm_counts[chosen_arm]
+        self.arm_rewards[chosen_arm] = ((n - 1) / n) * self.arm_rewards[chosen_arm] + (1 / n) * reward
+
+if __name__ == "__main__":
+    n_arms = 5
+    bandit = MultiArmedBandit(n_arms)
+    
+    for _ in range(1000):
+        chosen_arm = bandit.select_arm()
+        reward = np.random.randn() + (chosen_arm == np.random.randint(n_arms))
+        bandit.update(chosen_arm, reward)
+    
+    print(f"Arm rewards: {bandit.arm_rewards}")
